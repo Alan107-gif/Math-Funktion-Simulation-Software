@@ -1,3 +1,4 @@
 This repository now includes a runnable Python application that follows the README description.
 Use `FunctionExplorer-Main.py` to start the GUI. No external libraries are required; everything relies on Python's standard library (tkinter, math, etc.).
 The first window explains operator symbols and offers an "Examples" button to list sample functions. Use "Continue" to define variable domains. Checkboxes in the domain window allow you to keep variables at their default value if you don't want to customize them.
+Plots in the results window now draw horizontal and vertical axes so you can read values more precisely.
