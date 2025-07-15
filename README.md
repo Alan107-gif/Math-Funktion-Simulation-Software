@@ -14,7 +14,7 @@ This is a little special project. Written nearly entirely by Python it is practi
 This project provides an interactive GUI that lets users define, visualize and evaluate multivariate mathematical functions. It is no longer a minimal example—but a full‑featured core tool for exploring functions of any number of variables.
 
 ---
-Python interpreter is required
+Python interpreter is required -just pack all the scripts in one Dir and run the Main.py
 ---
 
 ## Core Functionality
