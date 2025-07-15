@@ -5,6 +5,9 @@ This is a little special project. Written nearly entirely by Python it is practi
 > **Note:** Please work only in the `main` branch.
 
 ---
+<img width="1185" height="874" alt="image" src="https://github.com/user-attachments/assets/9bb33d4e-b573-4b31-b217-dc115f29b0b3" />
+
+---
 
 ## Overview
 
