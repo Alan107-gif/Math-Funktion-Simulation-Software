@@ -13,13 +13,40 @@ class FunctionApp:
         self.root = root
         self.root.title("Math Function Explorer")
         self.func_var = tk.StringVar()
+        info = "Operators: / = division, * = multiplication, ** = power"
+        tk.Label(root, text=info, justify="left").pack(padx=10, pady=5)
         tk.Label(root, text="Enter function f(...):").pack(padx=10, pady=5)
         tk.Entry(root, textvariable=self.func_var, width=50).pack(padx=10, pady=5)
-        tk.Button(root, text="Define Domains", command=self.open_domain_window).pack(pady=10)
+        btn_frame = tk.Frame(root)
+        btn_frame.pack(pady=10)
+        tk.Button(btn_frame, text="Examples", command=self.show_examples).pack(side=tk.LEFT, padx=5)
+        tk.Button(btn_frame, text="Continue", command=self.open_domain_window).pack(side=tk.LEFT, padx=5)
         self.domain_win = None
         self.domain_entries = {}
+        self.active_vars = {}
         self.variables = []
         self.expr = ""
+
+    def show_examples(self):
+        win = tk.Toplevel(self.root)
+        win.title("Example Functions")
+        examples = [
+            "x + y",
+            "x**2 + 2*x + 1",
+            "sin(x)",
+            "cos(x) * y",
+            "exp(-x**2)",
+            "x*y + z",
+            "log(x+1)",
+            "sqrt(x**2 + y**2)",
+            "x**3 - 3*x*y**2",
+            "abs(x) + abs(y)",
+        ]
+        text = tk.Text(win, width=40, height=len(examples) + 2)
+        text.pack(padx=10, pady=10)
+        for ex in examples:
+            text.insert(tk.END, f"f(...)= {ex}\n")
+        text.config(state=tk.DISABLED)
 
     def open_domain_window(self):
         expr = self.func_var.get()
@@ -41,8 +68,11 @@ class FunctionApp:
         self.domain_win = tk.Toplevel(self.root)
         self.domain_win.title("Variable Domains")
         self.domain_entries = {}
+        self.active_vars = {}
         for row, var in enumerate(self.variables):
-            tk.Label(self.domain_win, text=var).grid(row=row, column=0, padx=5, pady=5)
+            active = tk.BooleanVar(value=True)
+            self.active_vars[var] = active
+            tk.Checkbutton(self.domain_win, text=var, variable=active).grid(row=row, column=0, padx=5, pady=5, sticky="w")
             e_start = tk.Entry(self.domain_win, width=7)
             e_start.insert(0, "0")
             e_start.grid(row=row, column=1, padx=5)
@@ -59,10 +89,13 @@ class FunctionApp:
         domains = {}
         try:
             for var, entries in self.domain_entries.items():
-                start = float(entries[0].get())
-                end = float(entries[1].get())
-                step = float(entries[2].get())
-                domains[var] = Domain(start, end, step)
+                if self.active_vars.get(var, tk.BooleanVar(value=True)).get():
+                    start = float(entries[0].get())
+                    end = float(entries[1].get())
+                    step = float(entries[2].get())
+                    domains[var] = Domain(start, end, step)
+                else:
+                    domains[var] = Domain(0, 0, 1)
         except Exception as exc:
             messagebox.showerror("Domain Error", str(exc))
             return

@@ -7,12 +7,16 @@ class Domain:
         step = float(step)
         if step == 0:
             raise ValueError("step cannot be zero")
-        if (end - start) * step <= 0:
-            raise ValueError("end must be greater than start for positive step")
+        if step > 0 and end < start:
+            raise ValueError("end must be >= start for positive step")
+        if step < 0 and end > start:
+            raise ValueError("end must be <= start for negative step")
         self.start = start
         self.end = end
         self.step = step
 
     def values(self):
+        if self.start == self.end:
+            return [self.start]
         count = int((self.end - self.start) / self.step) + 1
         return [self.start + i * self.step for i in range(count)]
