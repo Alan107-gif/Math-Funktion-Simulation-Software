@@ -1,0 +1,2 @@
+This repository now includes a runnable Python application that follows the README description.
+Use `FunctionExplorer-Main.py` to start the GUI. No external libraries are required; everything relies on Python's standard library (tkinter, math, etc.).
