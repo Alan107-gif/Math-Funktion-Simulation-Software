@@ -1,5 +1,5 @@
 # Math-Funktion-Simulation-Software
-This is a little special project. Written nearly entirely by Python it is practically a Programm made out of Scripts. Its a Powerfull and max-funktional (Math)Funktion-Visualisation Software that is no longer an minimalistic Example.
+This is a little special project. Written nearly entirely by Python it is practically a Programm made out of lot's of Scripts. Its a Powerfull and max-funktional (Math)Funktion-Visualisation Software that is no longer an minimalistic Example.
 **A powerful, script‑based Python application for visualizing and analyzing mathematical functions.**
 
 > **Note:** Please work only in the `main` branch.
