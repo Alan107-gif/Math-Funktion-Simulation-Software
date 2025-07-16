@@ -2,8 +2,6 @@
 This is a little special project. Written nearly entirely by Python it is practically a Programm made out of lot's of Scripts. Its a Powerfull and max-funktional (Math)Funktion-Visualisation Software that is no longer an minimalistic Example.
 **A powerful, script‑based Python application for visualizing and analyzing mathematical functions.** it also has a set of predefined funktions, exponential, for transformers(elctric), sin and so on, a lot of them, just the names wxampl.: f(x) = ... .
 
-> **Note:** Please work only in the `main` branch.
-
 ---
 <img width="1185" height="874" alt="image" src="https://github.com/user-attachments/assets/9bb33d4e-b573-4b31-b217-dc115f29b0b3" />
 
